@@ -1,0 +1,19 @@
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        sbt: ["1.12.8", "2.0.0-RC7", "2.0.0-RC8", "2.0.0-RC9", "2.0.0-RC10"]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v6
+    - uses: actions/setup-java@v5
+      with:
+        distribution: temurin
+        java-version: 17
+    - uses: sbt/setup-sbt@v1
+    - run: echo "sbt.version=${{ matrix.sbt }}" > project/build.properties
+    - run: sbt "foo ; reload plugins ; foo ; reload return ; foo "
