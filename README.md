@@ -1,0 +1,1 @@
+# sbt-2-meta-build-plugin-same-name
