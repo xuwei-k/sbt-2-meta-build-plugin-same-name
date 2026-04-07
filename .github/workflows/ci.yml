@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        sbt: ["1.12.8", "2.0.0-RC7", "2.0.0-RC8", "2.0.0-RC9", "2.0.0-RC10"]
+        sbt: ["1.12.8", "2.0.0-RC10", "2.0.0-RC11"]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v6
